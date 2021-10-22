@@ -1,0 +1,59 @@
+import { useState } from "react";
+import ReactDOM from "react-dom";
+import "./styles.css";
+
+function App() {
+  const [number1, setNumber1] = useState(0);
+  const [number2, setNumber2] = useState(0);
+  const [result, setResult] = useState(0);
+
+  function handleNumber1Change(e) {
+    setNumber1(Number(e.target.value));
+  }
+
+  function handleNumber2Change(e) {
+    setNumber2(+e.target.value);
+  }
+
+  function addNums() {
+    setResult(number1 + number2);
+  }
+
+  function subtractNums() {
+    setResult(number1 - number2);
+  }
+
+  function multiplyNums() {
+    setResult(number1 * number2);
+  }
+
+  function divideNums() {
+    setResult(number1 / number2);
+  }
+
+  function remainder() {
+    setResult(number1 % number2);
+  }
+
+  return (
+    <div className="App">
+      <h1>Adding Two Numbers</h1>
+
+      <div className="number-inputs">
+        <input type="number" placeholder="0" onChange={handleNumber1Change} />
+        <input type="number" placeholder="0" onChange={handleNumber2Change} />
+      </div>
+
+      <button onClick={addNums}>+</button>
+      <button onClick={subtractNums}>-</button>
+      <button onClick={multiplyNums}>*</button>
+      <button onClick={divideNums}>/</button>
+      <button onClick={remainder}>MOD</button>
+
+      <h2>{result}</h2>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
