@@ -35,20 +35,44 @@ function App() {
     setResult(number1 % number2);
   }
 
+  function clear() {
+    setNumber1(0);
+    setNumber2(0);
+    setResult(0);
+  }
+
   return (
     <div className="App">
       <h1>Adding Two Numbers</h1>
 
       <div className="number-inputs">
-        <input type="number" placeholder="0" onChange={handleNumber1Change} />
-        <input type="number" placeholder="0" onChange={handleNumber2Change} />
+        <input
+          type="number"
+          placeholder="0"
+          value={number1}
+          onChange={handleNumber1Change}
+        />
+        <input
+          type="number"
+          placeholder="0"
+          value={number2}
+          onChange={handleNumber2Change}
+        />
       </div>
 
-      <button onClick={addNums}>+</button>
-      <button onClick={subtractNums}>-</button>
-      <button onClick={multiplyNums}>*</button>
-      <button onClick={divideNums}>/</button>
-      <button onClick={remainder}>MOD</button>
+      <div class="btnRow1">
+        <button onClick={clear}>CLR</button>
+      </div>
+      <div class="btnRow2">
+        <button onClick={addNums}>+</button>
+        <button onClick={subtractNums}>-</button>
+      </div>
+
+      <div class="btnRow3">
+        <button onClick={multiplyNums}>*</button>
+        <button onClick={divideNums}>/</button>
+        <button onClick={remainder}>MOD</button>
+      </div>
 
       <h2>{result}</h2>
     </div>
